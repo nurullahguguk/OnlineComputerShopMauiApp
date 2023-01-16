@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnlineComputerShopApp.UserPage"
+             Title="UserPage">
+
+    <ScrollView>
+        <Frame 
+            BackgroundColor="#DCDCDC"
+            Margin="15"
+            CornerRadius="30">
+
+            <VerticalStackLayout>
+
+
+                <Label 
+                    Text="User Registration"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" />
+
+                <Image
+                    Source="dotnet_bot.png"
+                    HeightRequest="200"
+                    HorizontalOptions="Center" />
+
+
+
+                <Grid   
+                    Margin="20"
+                    RowDefinitions="*,*,*,*,*"
+                    ColumnDefinitions="*,*"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+
+
+                    <Label 
+                        Text="FirstName: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="0"
+                        Grid.Column="0"/>
+                    <Entry 
+                        x:Name="EntFirstName"
+                        Margin="5"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+
+                    <Label 
+                        Text="Last Name: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="1"
+                        Grid.Column="0"/>
+                    <Entry 
+                        x:Name="EntLastName"
+                        Margin="5"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Grid.Row="1"
+                        Grid.Column="1"/>
+
+                    <Label 
+                        Text="Gender: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="2"
+                        Grid.Column="0"/>
+
+                    <Picker x:Name="GenderPicker"
+                            Grid.Row="2"
+                            Grid.Column="1" 
+                            BackgroundColor="LightGray"
+                            Margin="5"
+                            TextColor="Black">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Male</x:String>
+                                <x:String>Female</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+
+                    <Label 
+                        Text="Date: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="3"
+                        Grid.Column="0"/>
+
+
+                    <DatePicker x:Name="UserCreateDate"
+                                Grid.Row="3"
+                                Grid.Column="1" 
+                                Margin="5"
+                                BackgroundColor="LightGray"/>
+
+                    <Label 
+                        Text="Age: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="4"
+                        Grid.Column="0"/>
+                    <Entry 
+                        x:Name="EntUserAge"
+                        Margin="5"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Grid.Row="4"
+                        Grid.Column="1"/>
+                </Grid>
+
+
+                <Button 
+                    x:Name="BtnAddUser" 
+                    Text="Add Student"
+                    Margin="10"
+                    WidthRequest="200"
+                    HeightRequest="50"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Clicked="BtnAddUser_Clicked"
+                    BackgroundColor="SeaGreen"/>
+
+
+
+                <Grid ColumnDefinitions="*,*,*,*,*,*,*"
+                         Margin="15">
+                    <Label Text="User ID"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="0"/>
+                    <Label Text="Fisrt Name"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="1" />
+                    <Label Text="Last Name"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="2" />
+                    <Label Text="Gender"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="3" />
+                    <Label Text="Create Date"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="4" />
+                    <Label Text="Age"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="5" />
+                    <Label Text="Operations"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="6"/>
+                </Grid>
+
+
+                <ListView x:Name="UserListView" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*,*,*,*,*,*,*"
+                                          Margin="15">
+
+                                    <Label Text="{Binding UserId}" 
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="0"/>
+
+                                    <Label Text="{Binding Name}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="1"/>
+
+                                    <Label Text="{Binding LastName}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="2"/>
+
+
+                                    <Label Text="{Binding Gender}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="3"/>
+
+                                    <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="4"/>
+
+                                    <Label Text="{Binding Age}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="5"/>
+
+                                    <Button x:Name="BtnDeleteStudent" 
+                                        Text="Delete" 
+                                        BindingContext="{Binding UserId}"
+                                        FontAttributes="Bold"
+                                        FontSize="10"
+                                        BackgroundColor="DarkRed"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        MaximumWidthRequest="200"
+                                        Clicked="BtnDeleteStudent_Clicked"
+                                        Grid.Row="0" Grid.Column="6"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>

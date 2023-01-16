@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnlineComputerShopApp.CpuPage"
+             Title="CpuPage">
+    <ScrollView>
+        <Frame 
+            BackgroundColor="#DCDCDC"
+            Margin="15"
+            CornerRadius="30">
+
+            <VerticalStackLayout>
+
+
+                <Label 
+                    Text="CPU Addition"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" />
+
+                <Image
+                    Source="dotnet_bot.png"
+                    HeightRequest="200"
+                    HorizontalOptions="Center" />
+
+
+
+                <Grid   
+                    Margin="20"
+                    RowDefinitions="*,*"
+                    ColumnDefinitions="*,*"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <Label 
+                        Text="CPU Name: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="0"
+                        Grid.Column="0"/>
+                    <Entry 
+                        x:Name="EntCpuName"
+                        Margin="5"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+
+                    <Label 
+                        Text="CPU Price: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="1"
+                        Grid.Column="0"/>
+                    <Entry 
+                        x:Name="EntCpuPrice"
+                        Margin="5"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Grid.Row="1"
+                        Grid.Column="1"/>
+                </Grid>
+
+
+                <Button 
+                    x:Name="BtnAddCpu" 
+                    Text="Add CPU"
+                    Margin="10"
+                    WidthRequest="200"
+                    HeightRequest="50"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Clicked="BtnAddCpu_Clicked"
+                    BackgroundColor="SeaGreen"/>
+
+
+
+                <Grid ColumnDefinitions="*,*,*,*"
+                         Margin="15">
+                    <Label Text="CPU ID"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="0"/>
+                    <Label Text="CPU Name"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="1" />
+                    <Label Text="CPU Price"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="2" />
+                    
+                    <Label Text="Operations"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="3"/>
+                </Grid>
+
+
+                <ListView x:Name="CpuListView" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*,*,*,*"
+                                          Margin="15">
+
+                                    <Label Text="{Binding CpuId}" 
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="0"/>
+
+                                    <Label Text="{Binding CpuName}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="1"/>
+
+                                    <Label Text="{Binding CpuPrice}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="2"/>
+
+                                    <Button x:Name="BtnDeleteCpu" 
+                                        Text="Delete" 
+                                        BindingContext="{Binding CpuId}"
+                                        FontAttributes="Bold"
+                                        FontSize="10"
+                                        BackgroundColor="DarkRed"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        MaximumWidthRequest="200"
+                                        Clicked="BtnDeleteCpu_Clicked"
+                                        Grid.Row="0" Grid.Column="3"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>

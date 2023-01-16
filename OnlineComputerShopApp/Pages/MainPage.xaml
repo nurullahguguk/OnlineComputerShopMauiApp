@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnlineComputerShopApp.MainPage">
+
+    <ScrollView>
+        <Frame BackgroundColor="#DCDCDC"
+            Margin="15"
+            CornerRadius="30">
+            <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+                <Image
+                Source="dotnet_bot.png"
+                HorizontalOptions="Center"
+                WidthRequest="350"  />
+
+                <Label
+                Margin="10"
+                Text="Welcome!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="25"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"
+                TextColor="DarkViolet"/>
+
+                <Label
+                Margin="10"
+                Text="Online Computer Shop App"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center"
+                FontAttributes="Bold"/>
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+
+</ContentPage>

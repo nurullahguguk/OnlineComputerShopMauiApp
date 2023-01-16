@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnlineComputerShopApp.RamPage"
+             Title="RamPage">
+
+    <ScrollView>
+        <Frame 
+            BackgroundColor="#DCDCDC"
+            Margin="15"
+            CornerRadius="30">
+
+            <VerticalStackLayout>
+
+                <Label 
+                    Text="RAM Addition"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" />
+
+                <Image
+                Source="dotnet_bot.png"
+                HeightRequest="150"
+                HorizontalOptions="Center" />
+
+
+
+                <Grid   
+                    Margin="20"
+                    RowDefinitions="*,*"
+                    ColumnDefinitions="*,*"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <Label 
+                        Text="RAM Brand: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="0"
+                        Grid.Column="0"/>
+                    <Entry 
+                        x:Name="EntRamBrand"
+                        Margin="5"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+                    
+                    <Label 
+                        Text="RAM Size: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="1"
+                        Grid.Column="0"/>
+
+                    <Picker x:Name="RamSizePicker"
+                            Grid.Row="1"
+                            Grid.Column="1" 
+                            BackgroundColor="LightGray"
+                            Margin="5"
+                            TextColor="Black">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>8 GB</x:String>
+                                <x:String>16 GB</x:String>
+                                <x:String>32 GB</x:String>
+                                <x:String>64 GB</x:String>
+                                <x:String>128 GB</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                </Grid>
+
+
+                <Button 
+                    x:Name="BtnAddRam" 
+                    Text="Add Ram"
+                    Margin="10"
+                    WidthRequest="200"
+                    HeightRequest="50"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Clicked="BtnAddRam_Clicked"
+                   BackgroundColor="SeaGreen"/>
+
+
+
+                <Grid ColumnDefinitions="*,*,*,*"
+                        Margin="15">
+                    <Label Text="RAM Product ID"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="0"/>
+                    
+                    <Label Text="RAM Brand"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="1" />
+                    
+                    <Label Text="RAM Size"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="2" />
+
+                    <Label Text="Operations"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="3"/>
+                </Grid>
+
+
+                <ListView x:Name="RamListView" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*,*,*,*"
+                                      Margin="15">
+
+
+                                    <Label Text="{Binding RamId}" 
+                                      FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="0"/>
+
+                                    <Label Text="{Binding RamName}" 
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="1"/>
+
+                                    <Label Text="{Binding RamSize}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="2"/>
+
+                                    <!--<Label Text="{Binding DepartmentCreatedDate, StringFormat='{0:dd/MM/yyyy}'}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="3"/>-->
+
+
+                                    <Button x:Name="BtnDeleteRam" 
+                                        Text="Delete" 
+                                        BindingContext="{Binding RamId}"
+                                        FontAttributes="Bold"
+                                        FontSize="10"
+                                        BackgroundColor="DarkRed"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        MaximumWidthRequest="200"
+                                        Grid.Column="4"
+                                        Clicked="BtnDeleteRam_Clicked"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>

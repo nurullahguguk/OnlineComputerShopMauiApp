@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnlineComputerShopApp.MonitorPage"
+             Title="MonitorPage">
+
+    <ScrollView>
+        <Frame 
+            BackgroundColor="#DCDCDC"
+            Margin="15"
+            CornerRadius="30">
+
+            <VerticalStackLayout>
+
+                <Label 
+                    Text="Monitor Brand and Price"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" />
+
+                <Image
+                Source="dotnet_bot.png"
+                HeightRequest="150"
+                HorizontalOptions="Center" />
+
+
+
+                <Grid RowDefinitions="*" ColumnDefinitions="*,*,*" Grid.Row="0" Margin="20" VerticalOptions="Center" HorizontalOptions="Center">
+                    <RadioButton x:Name="RbPhilips" Content="Phlips"  CheckedChanged="RbAsus_CheckedChanged"  Grid.Column="0" Grid.Row="0"/>
+                    <RadioButton x:Name="RbAsus" Content="Asus"  CheckedChanged="RbAsus_CheckedChanged"  Grid.Column="1" Grid.Row="0"/>
+                    <RadioButton x:Name="RbLG" Content="LG"  CheckedChanged="RbAsus_CheckedChanged"  Grid.Column="2" Grid.Row="0"/>
+                </Grid>
+
+                <Grid   
+                    Margin="20"
+                    RowDefinitions="*,*"
+                    ColumnDefinitions="*,*"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <Label 
+                        Text="Monitor Inch: "
+                        Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                        Grid.Row="1"
+                        Grid.Column="0"/>
+
+                    <Picker x:Name="MonitorInchPicker"
+                            Grid.Row="1"
+                            Grid.Column="1" 
+                            BackgroundColor="LightGray"
+                            Margin="5"
+                            TextColor="Black">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>16 Inch</x:String>
+                                <x:String>21 Inch</x:String>
+                                <x:String>24 Inch</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                </Grid>
+
+
+                <Button 
+                    x:Name="BtnAddMonitor" 
+                    Text="Add Monitor"
+                    Margin="10"
+                    WidthRequest="200"
+                    HeightRequest="50"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"                   
+                   BackgroundColor="SeaGreen"
+                    Clicked="BtnAddMonitor_Clicked"/>
+
+
+
+                <Grid ColumnDefinitions="*,*,*,*"
+                        Margin="15">
+                    <Label Text="Monitor ID"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="0"/>
+
+                    <Label Text="Monitor Brand"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="1" />
+
+                    <Label Text="Monitor Inch"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="2" />
+
+                    <Label Text="Operations"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="15"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="3"/>
+                </Grid>
+
+
+                <ListView x:Name="MonitorListView" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*,*,*,*"
+                                      Margin="15">
+
+
+                                    <Label Text="{Binding MonitorId}" 
+                                      FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="0"/>
+
+                                    <Label Text="{Binding MonitorBrand}" 
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="1"/>
+
+                                    <Label Text="{Binding MonitorInch}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Column="2"/>
+
+                                    <Button x:Name="BtnDeleteMOnitor" 
+                                        Text="Delete" 
+                                        BindingContext="{Binding Id}"
+                                        FontAttributes="Bold"
+                                        FontSize="10"
+                                        BackgroundColor="DarkRed"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        MaximumWidthRequest="200"
+                                        Grid.Column="4"
+                                        Clicked="BtnDeleteMOnitor_Clicked"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>

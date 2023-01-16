@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnlineComputerShopApp.EnrollmentPage"
+             Title="EnrollmentPage">
+
+    <ScrollView
+        Margin="15"
+        BackgroundColor="#DCDCDC">
+
+        <VerticalStackLayout>
+            <Label 
+                    Text="Product Registration"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center" />
+
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="150"
+                HorizontalOptions="Center" />
+
+
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="*,*"
+                  Margin="15">
+
+
+                <Grid ColumnDefinitions="*,*,*"
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      BackgroundColor="Transparent"
+                      Margin="5">
+
+                    <Label Text="CPU ID"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="13"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="0"/>
+                    <Label Text="CPU Name"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="13"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="1" />
+                    <Label Text="CPU Price"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="13"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="2" />
+                </Grid>
+
+                <ListView HasUnevenRows="True" 
+                          x:Name="CpuListView" 
+                          Grid.Row="1"
+                          Grid.Column="0"
+                          ItemTapped="CpuListView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*,*,*"
+                                  BackgroundColor="LightSkyBlue">
+
+                                    <Label Text="{Binding CpuId}" 
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="0"/>
+
+                                    <Label Text="{Binding CpuName}"
+                                      FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="1"/>
+
+                                    <Label Text="{Binding CpuPrice}"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="2"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Grid ColumnDefinitions="*,*,*"
+                         Margin="5"
+                      Grid.Row="0"
+                      Grid.Column="1">
+                    <Label Text="Storage ID"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="13"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="0"/>
+                    <Label Text="Storage Type"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="13"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="1" />
+                    <Label Text="Storage Size"
+                              FontAttributes="Bold"
+                              TextDecorations="Underline"
+                              FontSize="13"
+                              HorizontalOptions="Center"
+                              TextColor="DarkViolet"
+                              Grid.Column="2" />
+                </Grid>
+
+                <ListView HasUnevenRows="True"
+                x:Name="StorageListView"
+                       Grid.Row="1"
+                          Grid.Column="1"
+                          ItemTapped="StorageListView_ItemTapped">
+                          
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="*,*,*"
+                                  BackgroundColor="LightSteelBlue">
+
+                                <Label Text="{Binding StorageId}" 
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="0"/>
+
+                                <Label Text="{Binding StorageType}"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="1"/>
+
+                                <Label Text="{Binding StorageSize}"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Grid.Row="0" Grid.Column="2"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Grid>
+
+
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="*,*"
+                  VerticalOptions="Center"
+                  HorizontalOptions="Center"
+                  BackgroundColor="LightCyan">
+
+                <Label Text="Registration Date:"
+                       Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                       Grid.Row="0"
+                       Grid.Column="0" />
+                <DatePicker BackgroundColor="Cyan"
+                            Margin="5"
+                            TextColor="Black"
+                            x:Name="datePickerPres"
+                            Grid.Row="0"
+                            Grid.Column="1" />
+
+                <Label Text="Host Name:"
+                       Margin="5"    
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start"
+                       Grid.Row="1"
+                       Grid.Column="0" />
+                <Entry Margin="5"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                       x:Name="EtnHostName"
+                       Grid.Row="1"
+                       Grid.Column="1" />
+            </Grid>
+
+            <Button  Margin="10"
+                    WidthRequest="200"
+                    HeightRequest="50"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Approve" 
+                    x:Name="BtnApprove"
+                    Clicked="BtnApprove_Clicked"
+                     BackgroundColor="SeaGreen"/>
+
+            <Grid ColumnDefinitions="*,*,*,*,*,*,*,*">
+                <Label Text="CPU ID"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet"
+                       Grid.Column="0"
+                       />
+                <Label Text="CPU Name"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet"
+                       Grid.Column="1"
+                       />
+                <Label Text="Storage ID"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet"
+                       Grid.Column="2"
+                       />
+                <Label Text="Storage Name"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet"
+                       Grid.Column="3"
+                       />
+                <Label Text="Reg ID"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet"
+                       Grid.Column="4"
+                       />
+                <Label Text="Reg Date"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet"
+                       Grid.Column="5"
+                       />
+                <Label Text="HostName"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet"
+                       Grid.Column="6"
+                       />
+                <Label Text="Operations"
+                       FontAttributes="Bold"
+                       TextDecorations="Underline"
+                       FontSize="13"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet"
+                       Grid.Column="7"
+                       />
+            </Grid>
+
+            <ListView HasUnevenRows="True"
+                      x:Name="EnrollmentnListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="*,*,*,*,*,*,*,*"
+                                  BackgroundColor="AliceBlue">
+                                <Label Text="{Binding CpuId}"
+                                       Grid.Column="0"
+                                      FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                                <Label Text="{Binding CpuName}"
+                                       Grid.Column="1"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                                <Label Text="{Binding StorageId}"
+                                       Grid.Column="2"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="{Binding StorageBrand}"
+                                       Grid.Column="3"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                                <Label Text="{Binding RegId}"
+                                       Grid.Column="4"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"
+                                       Grid.Column="5"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+                                <Label Text="{Binding Hostname}"
+                                       Grid.Column="6"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"/>
+                                <Button Grid.Column="7"
+                                        Text="Delete" 
+                                        x:Name="BtnDelete"
+                                        BindingContext="{Binding RegId}"
+                                        FontAttributes="Bold"
+                                        FontSize="10"
+                                        BackgroundColor="DarkRed"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        MaximumWidthRequest="200"
+                                        Clicked="BtnDelete_Clicked"
+                                        />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

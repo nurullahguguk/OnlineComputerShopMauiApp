@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="OnlineComputerShopApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OnlineComputerShopApp"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+
+        <Tab Title="Home" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+        </Tab>
+
+        <Tab Title="CPU" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:CpuPage}" Route="CpuPage" />
+        </Tab>
+
+        <Tab Title="RAM" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:RamPage}" Route="RamPage" />
+        </Tab>
+        <Tab Title="Storage" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:StoregePage}" Route="StoregePage" />
+        </Tab>
+
+        <Tab Title="Monitor" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MonitorPage}" Route="MonitorPage" />
+        </Tab>
+        <Tab Title="User" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:UserPage}" Route="UserPage" />
+        </Tab>
+
+        <Tab Title="Enrollment" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:EnrollmentPage}" Route="EnrollmentPage" />
+        </Tab>
+
+    </TabBar>
+
+
+</Shell>
